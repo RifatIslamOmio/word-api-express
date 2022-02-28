@@ -1,7 +1,5 @@
 const dbConfig = require("../config/db.config")
-
 const { Sequelize, DataTypes } = require('sequelize')
-const { pool } = require("../config/db.config")
 
 const sequelize = new Sequelize(
     dbConfig.DB,
@@ -32,6 +30,9 @@ db.words = require("./word.model")(sequelize, DataTypes) //model
 db.sequelize.sync({ force: false })
     .then(() => {
         console.log("Re-Sync done!")
+    })
+    .catch(err => {
+        console.log("DB connection failed!!!")
     })
 
 module.exports = db

@@ -1,6 +1,5 @@
 const Validator = require('../utils/utils.validator')
 const db = require("../models/db")
-const e = require('express')
 
 const home = (req, res) => {
     res.send("<h4>Daily Vocabs API!</h4>")
