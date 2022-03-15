@@ -1,5 +1,4 @@
 const Validator = (object) => {
-    console.log(object)
     const KEYS = [
         "word_en",
         "pos", "word_bn",
