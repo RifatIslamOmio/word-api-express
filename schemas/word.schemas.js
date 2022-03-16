@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const wordSchema = mongoose.Schema({
     word_en: {
         type: String,
+        unique: true,
         required: true
     },
     word_bn: {

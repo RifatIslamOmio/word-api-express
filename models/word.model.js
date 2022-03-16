@@ -1,4 +1,3 @@
-
 module.exports = (sequelize, DataTypes) => {
     const Word = sequelize.define('word', {
         id: {
