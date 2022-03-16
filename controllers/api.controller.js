@@ -1,11 +1,14 @@
 const Validator = require('../utils/utils.validator')
-const db = require("../models/db")
+// const db = require("../models/db")
+const wordsSchema = require('../schemas/word.schemas')
+const mongoose = require('mongoose')
+const WordModelMongo = new mongoose.model("Word", wordsSchema);
 
 const home = (req, res) => {
     res.send("<h4>Daily Vocabs API!</h4>")
 }
 
-const Word = db.words //model
+// const Word = db.words //model
 
 const add_word = async (req, res) => {
     var reqBody = req.body
@@ -24,10 +27,47 @@ const add_word = async (req, res) => {
     }
 }
 
+
+// ----------------mongo
+const add_word_mongo = async (req, res) => {
+    var reqBody = req.body
+    console.log(reqBody)
+    if (!Validator(reqBody)) {
+        res.json({ Error: "Validator failed!" })
+    }
+    else {
+        const newWord = new WordModelMongo(reqBody)
+        await newWord.save((err) => {
+            if (err) {
+                res.status(500).json({
+                    error: err.message
+                })
+            } else {
+                res.send(reqBody)
+            }
+        })
+    }
+}
+
+
 const getAllWords = async (req, res) => {
     let words = await Word.findAll({})
     res.send(words)
 }
+
+const getAllWordsMongo = async (req, res) => {
+    await WordModelMongo.find({})
+        .then((data) => {
+            console.log(data)
+            res.send(data)
+        })
+        .catch(err => {
+            res.status(500).send({
+                error: "There was an error"
+            })
+        })
+}
+
 
 const getNoOfWords = async (req, res) => {
     try {
@@ -46,5 +86,8 @@ module.exports = {
     homePageGet: home,
     noteWordPost: add_word,
     allWordsGet: getAllWords,
-    noOfWordsGet: getNoOfWords
+    noOfWordsGet: getNoOfWords,
+
+    noteWordMongoPost: add_word_mongo,
+    allWordsMongoGet: getAllWordsMongo,
 }
