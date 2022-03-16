@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage --watchAll"
+    "test": "jest --coverage --watchAll",
+    "start" :"node index.js" 
   },
   "author": "Rifat",
   "license": "ISC",
