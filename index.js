@@ -2,7 +2,7 @@ const express = require('express')
 require('dotenv').config()
 const app = express()
 const apiRoute = require('./routes/api.routes')
-const PORT = 8080 || process.env.PORT
+const PORT = process.env.PORT || 8080
 var bodyParser = require('body-parser')
 const logger = require('morgan');
 const cors = require('cors')
@@ -25,5 +25,5 @@ app.use(cors(corsOptions))
 app.use('/', apiRoute)
 
 app.listen(PORT, () => {
-    console.log("http://localhost:8080")
+    console.log(`http://localhost:${PORT}`)
 })
