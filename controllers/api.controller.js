@@ -1,14 +1,15 @@
 const Validator = require('../utils/utils.validator')
-// const db = require("../models/db")
 const wordsSchema = require('../schemas/word.schemas')
+
 const mongoose = require('mongoose')
-const WordModelMongo = new mongoose.model("Word", wordsSchema);
+const WordModelMongo = new mongoose.model("Word", wordsSchema); //cloud mongo database (with mongoose ODM)
+
+// const db = require("../models/db") //Use this for local mysql server (with Sequelize ORM)
+// const Word = db.words
 
 const home = (req, res) => {
     res.send("<h4>Daily Vocabs API!</h4>")
 }
-
-// const Word = db.words //model
 
 const add_word = async (req, res) => {
     var reqBody = req.body
@@ -28,7 +29,6 @@ const add_word = async (req, res) => {
 }
 
 
-// ----------------mongo
 const add_word_mongo = async (req, res) => {
     var reqBody = req.body
     console.log(reqBody)
