@@ -29,18 +29,3 @@ const Validator = (object) => {
 }
 
 module.exports = Validator
-
-// var obj = {
-//     "word_en": "abduct",
-//     "word_bn": "অপহরণ",
-//     "pos": "verb",
-//     "source": "barron 333",
-//     "freq": "true",
-//     "syno": "kidnap, carry off, seize, capture",
-//     "sen_en": "He was abducted by robbers"
-// }
-
-// console.log(Validator(obj))
-
-
-

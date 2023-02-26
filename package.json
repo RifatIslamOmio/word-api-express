@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage --watchAll",
-    "start" :"node index.js" 
+    "start": "node index.js"
   },
   "author": "Rifat",
   "license": "ISC",
@@ -19,6 +19,7 @@
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
+    "node-2fa": "^2.0.3",
     "nodemon": "^2.0.15",
     "sequelize": "^6.16.2"
   },
