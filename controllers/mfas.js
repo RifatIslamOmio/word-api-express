@@ -1,5 +1,6 @@
 const MFA = require("../models/MFA");
 const variables = require("../configs/variables");
+const jwt = require("jsonwebtoken");
 
 exports.generateQrCode = async (req, res) => {
   try {
@@ -35,9 +36,15 @@ exports.verifyTotp = async (req, res) => {
         message: "Invalid totp code"
       });
     }
+    const token = jwt.sign(
+      { name: "RFT", role: "user" },
+      variables.accessTokenSecret,
+      { expiresIn: variables.jwtTokenExpiresIn }
+    );
+    res.cookie("jwt", token, { httpOnly: true });
     res.json({
       status: "success",
-      data: {},
+      data: { authToken: token },
       message: "Successfully verified totp code"
     });
   } catch (error) {
