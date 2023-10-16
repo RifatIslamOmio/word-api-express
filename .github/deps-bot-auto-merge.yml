@@ -1,10 +1,9 @@
 name: Deps Bot Auto Merge
 
 on:
-  push:
+  pull_request:
     branches:
       - 'master'
-  pull_request:
   dependabot:
     name: 'Dependabot'
     runs-on: ubuntu-latest
