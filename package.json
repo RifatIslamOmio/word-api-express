@@ -22,7 +22,7 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
     "node-2fa": "^2.0.3",
-    "nodemon": "^2.0.15",
+    "nodemon": "^2.0.22",
     "sequelize": "^6.29.0"
   },
   "devDependencies": {
