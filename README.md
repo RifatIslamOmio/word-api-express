@@ -4,6 +4,6 @@
 
 <b>Tech Stack:</b> 
 <ul> 
-  <li> ExpressJS (back-end)</li>
+  <li> ExpressJS (back-end) </li>
   <li>  MongoDB (with mongoose ODM as primary database) </li> 
 </ul>
