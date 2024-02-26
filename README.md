@@ -6,5 +6,4 @@
 <ul> 
   <li> ExpressJS (back-end)</li>
   <li>  MongoDB (with mongoose ODM as primary database) </li> 
-  <li> React (font-end) </li>
 </ul>
